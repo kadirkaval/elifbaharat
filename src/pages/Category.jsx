@@ -78,7 +78,7 @@ export default function Category() {
 
   return (
     <div className="max-w-6xl mx-auto px-3">
-      <h1 className="text-3xl text-center mt-6 font-bold mb-6">{params.categoryName === "rent" ? "Place for rent":"Place for sale"}</h1>
+      <h1 className="text-3xl text-center mt-6 font-bold mb-6">{params.categoryName === "packed" ? "Paketli ürünler":"Dökme Ürünler"}</h1>
       {loading ? (
         <Spinner />
       ) : listings && listings.length > 0 ? (
@@ -106,7 +106,7 @@ export default function Category() {
           )}
         </>
       ) : (
-        <p>There are no current {params.categoryName === "rent" ? "Place for rent":"Place for sale"}</p>
+        <p>There are no current {params.categoryName === "packed" ? "Paketli ürünler":"Dökme ürünler"}</p>
       )}
     </div>
   );
