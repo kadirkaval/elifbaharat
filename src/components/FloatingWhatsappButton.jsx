@@ -6,7 +6,7 @@ export default function FloatingWhatsappButton() {
   return (
     <FloatingWhatsApp
     placeholder="message"
-    phoneNumber="+905464835060"
+    phoneNumber="+905070084835"
     statusMessage="En kısa sürede cevap verilecektir."
     accountName="elifbaharat - Galip Kaval"
     avatar={avatar}

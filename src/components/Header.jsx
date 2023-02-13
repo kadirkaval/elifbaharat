@@ -5,6 +5,7 @@ import logo from "../assets/logo.png"
 
 export default function Header() {
     const [pageState, setPageState] = useState("Sign in");
+    const [userEmail, setUserEmail] = useState("");
   // location hangi sayfada olduğumuzun path ini almamızı sağlıyor
   const location = useLocation();
   // sayfalarası geçiş için
@@ -16,8 +17,10 @@ export default function Header() {
     onAuthStateChanged(auth, (user)=>{
         if(user){
             setPageState("Profile")
+            setUserEmail(auth.currentUser.email)
         }else{
             setPageState("Sign in")
+            setUserEmail("")
         }
     })
   }, [auth]);
@@ -71,17 +74,17 @@ export default function Header() {
               onClick={() => navigate("/category/packed")}
             >
               Paketli
-            </li>
-            {pageState === "Profile" && (
-              <li
-              className={`text-gray-400 cursor-pointer px-3 py-3 text-md font-bold border-b-[3px] border-b-transparent ${
-                (pathMatchRoute("/sign-in") || pathMatchRoute("/profile")) && "border-b-[#558D3B] text-[#f80]"
-              }`}
-              onClick={() => navigate("/profile")}
-            >
-             { pageState}
-            </li>
-            )}
+            </li>       
+               {pageState === "Profile" && userEmail === "galip.kaval@gmail.com" &&(
+                <li
+                className={`text-gray-400 cursor-pointer px-3 py-3 text-md font-bold border-b-[3px] border-b-transparent ${
+                  (pathMatchRoute("/sign-in") || pathMatchRoute("/profile")) && "border-b-[#558D3B] text-[#f80]"
+                }`}
+                onClick={() => navigate("/profile")}
+              >
+               { pageState}
+              </li>
+              )}                    
           </ul>
         </div>
       </header>

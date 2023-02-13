@@ -7,8 +7,9 @@ import FloatingWhatsappButton from "./FloatingWhatsappButton";
 export default function Footer() {
   return (
     
-      <div className="bg-white border-b shadow-md bottom-0 z-50 p-1 mt-6">
+      <div className="bg-[#f7e6d4] border-b shadow-md z-50 p-2 mt-6 relative bottom-0 w-[100%]">
         {
+          
           <div className="max-w-6xl mx-auto">
             <ul className="sm:grid sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 space-x-10 items-center">
             <li>
@@ -38,17 +39,16 @@ export default function Footer() {
                   <FaMapMarkerAlt className="text-green-700" />
                 </p>
                 <p className="mb-3">Haydar Çavuş, Sunullah Cd., 10200 Bandırma/Balıkesir</p>
-                <p className="mb-3">GSM: 00000000000</p>
+                <p className="mb-3">gsm: +90 507 008 48 35</p>
                 <p>e-mail: galip.kaval@gmail.com</p>
               </div>
              </li>
              <li>
              <FloatingWhatsappButton/>
-             </li>
-             
-             
-            </ul>
+             </li>  
+            </ul>            
           </div>
+          
         }
       </div>
 
