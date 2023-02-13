@@ -119,7 +119,8 @@ export default function Profile() {
               disabled
             />
             <div className="flex justify-between items-center whitespace-nowrap text-sm sm:text-lg mb-6">
-              {/* <p className="flex items-center">
+              {auth.currentUser.email === "galip.kaval@gmail.com" && (
+                <p className="flex items-center">
                 Do you want to change your name?
                 <span
                   onClick={() => {
@@ -130,7 +131,8 @@ export default function Profile() {
                 >
                   {changeDetails ? "Apply change" : "Edit"}
                 </span>
-              </p> */}
+              </p>
+              )}
               <p
                 onClick={onLogout}
                 className="text-blue-600 hover:text-blue-800 transition ease-in-out duration-200 ml-1 cursor-pointer"
