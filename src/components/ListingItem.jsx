@@ -1,7 +1,7 @@
 import React from "react";
-import Moment from "react-moment";
+// import Moment from "react-moment";
 import { Link } from "react-router-dom";
-import { MdLocationOn } from "react-icons/md";
+import { MdDescription } from "react-icons/md";
 import { FaTrash } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 
@@ -15,21 +15,21 @@ export default function ListingItem({ listing, id, onEdit, onDelete }) {
           src={listing.imgUrls[0]}
           alt="product"
         />
-        <Moment
+        {/* <Moment
           className="absolute top-2 left-2 bg-[#3377cc] text-white uppercase text-xs font-semibold rounded-md px-2 py-1 shadow-lg"
           fromNow
         >
           {listing.timestamp?.toDate()}
-        </Moment>
+        </Moment> */}
         <div className="w-full p-[10px]">
-          <div className="flex items-center space-x-1">
+          {/* <div className="flex items-center space-x-1">
             <MdLocationOn className="h-4 w-4 text-green-600" />
             <p className="font-semibold text-sm mb-[2px] text-gray-600 truncate">
               {listing.address}
             </p>
-          </div>
-          <p className="font-semibold m-0 text-xl truncate">{listing.name}</p>
-          <p className="text-[#457b9d] font-semibold mt-2">            
+          </div> */}
+          <p className="font-semibold m-0 text-xl truncate my-1">{listing.name}</p>
+          {/* <p className="text-[#457b9d] font-semibold mt-2">            
             {listing.offer
               ? listing.discountedPrice
                   .toString()
@@ -40,8 +40,14 @@ export default function ListingItem({ listing, id, onEdit, onDelete }) {
             {listing.offer
               ? (<span className="ml-1 text-sm">TL (1 adet)</span>)
               : (<span className="ml-1 text-sm">TL (1 kg)</span>)}
-          </p>
-          <div className="flex items-center mt-[10px] space-x-3">
+          </p> */}
+           <div className="flex items-center space-x-1 mb-1">
+            <MdDescription className="h-4 w-4 text-green-600" />
+            <p className="font-semibold text-sm mb-1 text-gray-600 truncate">
+              Özellikleri : {listing.description}
+            </p>
+          </div>
+          <div className="flex items-center space-x-3 my-2">
             <div className=" flex items-center space-x-1">
               <p className="font-bold text-xs">Stok :
                 {listing.quantity > 0 ? `${listing.quantity} adet` : null}

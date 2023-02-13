@@ -34,52 +34,54 @@ export default function Header() {
           <img
             src={logo}
             alt="logo"
-            className="h-10 cursor-pointer"
+            className="sm:h-5 md:h-14 cursor-pointer"
             onClick={() => navigate("/")}
           />
         </div>
         <div>
-          <ul className="flex space-x-10">
+          <ul className="flex space-x-8 my-3">
             <li
               className={`cursor-pointer py-3 text-md font-bold text-gray-400 border-b-[3px] border-b-transparent ${
-                pathMatchRoute("/") && "text-black border-b-red-500"
+                pathMatchRoute("/") && " border-b-[#558D3B] text-[#f80]"
               }`}
               onClick={() => navigate("/")}
             >
               Anasayfa
             </li>
-            <li
+            {/* <li
               className={`cursor-pointer py-3 text-md font-bold text-gray-400 border-b-[3px] border-b-transparent ${
-                pathMatchRoute("/offers") && "text-black border-b-red-500"
+                pathMatchRoute("/offers") && "text-black border-b-red-500 text-[#f80]"
               }`}
               onClick={() => navigate("/offers")}
             >
               İndirimli Ürünler
-            </li>
+            </li> */}
             <li
               className={`cursor-pointer py-3 text-md font-bold text-gray-400 border-b-[3px] border-b-transparent ${
-                pathMatchRoute("/category/stack") && "text-black border-b-red-500"
+                pathMatchRoute("/category/stack") && "border-b-[#558D3B] text-[#f80]"
               }`}
               onClick={() => navigate("/category/stack")}
             >
-              Dökme Ürünler
+              Dökme
             </li>
             <li
               className={`cursor-pointer py-3 text-md font-bold text-gray-400 border-b-[3px] border-b-transparent ${
-                pathMatchRoute("/category/packed") && "text-black border-b-red-500"
+                pathMatchRoute("/category/packed") && " border-b-[#558D3B] text-[#f80]"
               }`}
               onClick={() => navigate("/category/packed")}
             >
-              Paketli Ürünler
+              Paketli
             </li>
-            <li
-              className={`cursor-pointer py-3 text-md font-bold text-gray-400 border-b-[3px] border-b-transparent ${
-                (pathMatchRoute("/sign-in") || pathMatchRoute("/profile")) && "text-black border-b-red-500"
+            {pageState === "Profile" && (
+              <li
+              className={`text-gray-400 cursor-pointer px-3 py-3 text-md font-bold border-b-[3px] border-b-transparent ${
+                (pathMatchRoute("/sign-in") || pathMatchRoute("/profile")) && "border-b-[#558D3B] text-[#f80]"
               }`}
               onClick={() => navigate("/profile")}
             >
-              {pageState}
+             { pageState}
             </li>
+            )}
           </ul>
         </div>
       </header>

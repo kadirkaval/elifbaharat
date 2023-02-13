@@ -27,7 +27,7 @@ export default function Contact({ userRef, listing }) {
       {contact !== null && (
         <div className="flex flex-col w-full">
           <p>
-            İletişim: <span className="font-semibold">{contact.name}</span> - Ürün:  {listing.name.toLowerCase()}
+           <span className="font-semibold">elifbaharat'a</span> - {listing.name.toLowerCase()} için mesaj gönder
           </p>
           <div className="mt-3 mb-6">
             <textarea
@@ -40,7 +40,7 @@ export default function Contact({ userRef, listing }) {
             ></textarea>
           </div>
           <a
-            href={`mailto:${contact.email}?Subject=${listing.name}&body=${message}`}
+            href={`mailto:"galip.kaval@gmail.com"?Subject=${listing.name}&body=${message}`}
           >
             <button className="px-7 py-3 bg-blue-600 text-white text-sm uppercase shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full text-center mb-6" type="button">Mesaj Gönder</button>
           </a>

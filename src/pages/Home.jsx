@@ -1,7 +1,6 @@
 import {
   collection,
   getDocs,
-  limit,
   orderBy,
   query,
   where,
@@ -14,7 +13,7 @@ import { db } from "../firebase";
 
 export default function Home() {
   // Offers
-  const [offerListings, setOfferListings] = useState(null);
+  // const [offerListings, setOfferListings] = useState(null);
   useEffect(() => {
     async function fetchListings() {
       try {
@@ -24,8 +23,7 @@ export default function Home() {
         const q = query(
           listingsRef,
           where("offer", "==", true),
-          orderBy("timestamp", "desc"),
-          limit(4)
+          orderBy("timestamp", "desc")
         );
         //execute the query
         const querySnap = await getDocs(q);
@@ -36,7 +34,7 @@ export default function Home() {
             data: doc.data(),
           });
         });
-        setOfferListings(listings);
+        // setOfferListings(listings);
       } catch (error) {
         //toast.error("")
         console.log(error);
@@ -45,7 +43,7 @@ export default function Home() {
     fetchListings();
   }, []);
    // Places for rent 
-   const [rentListings, setRentListings] = useState(null);
+   const [packedListing, setPackedListing] = useState(null);
    useEffect(() => {
      async function fetchListings() {
        try {
@@ -55,8 +53,7 @@ export default function Home() {
          const q = query(
            listingsRef,
            where("type", "==", "packed"),
-           orderBy("timestamp", "desc"),
-           limit(4)
+           orderBy("timestamp", "desc")
          );
          //execute the query
          const querySnap = await getDocs(q);
@@ -67,7 +64,7 @@ export default function Home() {
              data: doc.data(),
            });
          });
-         setRentListings(listings);
+         setPackedListing(listings);
        } catch (error) {
          //toast.error("")
          console.log(error);
@@ -76,7 +73,7 @@ export default function Home() {
      fetchListings();
    }, []);
    // Places for sale 
-   const [saleListings, setSaleListings] = useState(null);
+   const [stackListings, setStackListings] = useState(null);
    useEffect(() => {
      async function fetchListings() {
        try {
@@ -84,8 +81,7 @@ export default function Home() {
          const q = query(
            listingsRef,
            where("type", "==", "stack"),
-           orderBy("timestamp", "desc"),
-           limit(4)
+           orderBy("timestamp", "desc")
          );
          //execute the query
          const querySnap = await getDocs(q);
@@ -96,7 +92,7 @@ export default function Home() {
              data: doc.data(),
            });
          });
-         setSaleListings(listings);
+         setStackListings(listings);
        } catch (error) {
          //toast.error("")
          console.log(error);
@@ -108,7 +104,7 @@ export default function Home() {
     <div>
       <Slider />
       <div className="max-w-6xl mx-auto pt-4 space-y-6">
-        {offerListings && offerListings.length > 0 && (
+        {/* {offerListings && offerListings.length > 0 && (
           <div className="m-2 mb-6">
             <h2 className="px-3 text-2xl mt-6 font-semibold">İndirili ürünler</h2>
             <Link to="/offers">
@@ -122,8 +118,8 @@ export default function Home() {
               ))}
             </ul>
           </div>
-        )}
-        {rentListings && rentListings.length > 0 && (
+        )} */}
+        {packedListing && packedListing.length > 0 && (
           <div className="m-2 mb-6">
             <h2 className="px-3 text-2xl mt-6 font-semibold">Paketli ürünler</h2>
             <Link to="/category/packed">
@@ -132,13 +128,13 @@ export default function Home() {
               </p>
             </Link>
             <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {rentListings.map((listing) => (
+              {packedListing.map((listing) => (
                 <ListingItem key={listing.id} id={listing.id} listing={listing.data} />
               ))}
             </ul>
           </div>
         )}
-        {saleListings && saleListings.length > 0 && (
+        {stackListings && stackListings.length > 0 && (
           <div className="m-2 mb-6">
             <h2 className="px-3 text-2xl mt-6 font-semibold">Dökme ürünler</h2>
             <Link to="/category/stack">
@@ -147,7 +143,7 @@ export default function Home() {
               </p>
             </Link>
             <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {saleListings.map((listing) => (
+              {stackListings.map((listing) => (
                 <ListingItem key={listing.id} id={listing.id} listing={listing.data} />
               ))}
             </ul>

@@ -94,8 +94,7 @@ export default function Profile() {
     navigate(`/edit-listing/${listingID}`);
   }
   return (
-    <>
-      <section className="max-w-6xl flex justify-center items-center flex-col m-auto">
+    <><section className="max-w-6xl flex justify-center items-center flex-col m-auto">
         <h1 className="text-3xl text-center mt-6 font-bold">My Profile</h1>
         <div className="w-full md:w-[50%] mt-6 px-3">
           <form>
@@ -120,7 +119,7 @@ export default function Profile() {
               disabled
             />
             <div className="flex justify-between items-center whitespace-nowrap text-sm sm:text-lg mb-6">
-              <p className="flex items-center">
+              {/* <p className="flex items-center">
                 Do you want to change your name?
                 <span
                   onClick={() => {
@@ -131,7 +130,7 @@ export default function Profile() {
                 >
                   {changeDetails ? "Apply change" : "Edit"}
                 </span>
-              </p>
+              </p> */}
               <p
                 onClick={onLogout}
                 className="text-blue-600 hover:text-blue-800 transition ease-in-out duration-200 ml-1 cursor-pointer"
@@ -140,7 +139,9 @@ export default function Profile() {
               </p>
             </div>
           </form>
-          <button
+          {
+            auth.currentUser.email === "galip.kaval@gmail.com" && (
+              <button
             type="submit"
             className="w-full px-7 py-2 uppercase bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white rounded transition duration-200 ease-in-out text-sm font-medium shadow-md hover:shadow-lg"
           >
@@ -152,6 +153,8 @@ export default function Profile() {
               Ürün Listeleme
             </Link>
           </button>
+            )
+          }
         </div>
       </section>
       <div className="max-w-6xl px-3 mt-6 mx-auto">

@@ -17,18 +17,18 @@ import {
   FaShoppingBasket,
 } from "react-icons/fa";
 import "swiper/css/bundle";
-import { getAuth } from "firebase/auth";
+// import { getAuth } from "firebase/auth";
 import Contact from "../components/Contact";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 export default function Listing() {
-  const auth = getAuth();
+  // const auth = getAuth();
   const params = useParams();
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(true);
   const [shareLinkCopied, setShareLinkCopied] = useState(false);
   SwiperCore.use([Autoplay, Navigation, Pagination]);
-  const [contactShop, setContactShop] = useState(false);
+  // const [contactShop, setContactShop] = useState(false);
 
   useEffect(() => {
     async function fetchListing() {
@@ -86,15 +86,15 @@ export default function Listing() {
       <div className="m-4 flex flex-col md:flex-row max-w-6xl lg:mx-auto p-4 rounded shadow-lg bg-white lg:space-x-5">
         <div className="w-full">
           <p className="text-2xl font-bold mb-3 text-blue-900">
-            {listing.name} - 
-            {listing.offer
+            {listing.name} 
+            {/* {listing.offer
               ? listing.discountedPrice
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               : listing.regularPrice
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            <span className="ml-1">TL</span>
+            <span className="ml-1">TL</span> */}
           </p>
           <p className="flex items-center mt-6 mb-3 font-semibold">
             <FaMapMarkerAlt className="text-green-700 mr-1" />
@@ -104,7 +104,7 @@ export default function Listing() {
             <p className="bg-[#f80] w-full max-w-[200px] rounded-md p-1 text-white text-center font-semibold shadow-md">
               {listing.type === "rent" ? "Paketli ürün" : "Dökme ürün"}
             </p>
-            {listing.offer && (
+            {/* {listing.offer && (
               <p className="bg-green-500 w-full max-w-[200px] rounded-md p-1 text-white text-center font-semibold shadow-md">
                 
                 {(listing.regularPrice - listing.discountedPrice)
@@ -112,7 +112,7 @@ export default function Listing() {
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
                 TL İndirimli
               </p>
-            )}
+            )} */}
           </div>
           <p className="mt-3 mb-3">
             <span className="font-semibold">Açıklama : </span>
@@ -132,7 +132,7 @@ export default function Listing() {
             </li>
             
           </ul>
-          {listing.userRef !== auth.currentUser?.uid && !contactShop && (
+          {/* {listing.userRef !== auth.currentUser?.uid && !contactShop && (
             <div className="mt-6">
               <button
                 onClick={() => setContactShop(true)}
@@ -141,10 +141,10 @@ export default function Listing() {
                 e-mail gönder
               </button>
             </div>
-          )}
-          {contactShop && (
+          )} */}
+          {/* {contactShop && ( */}
             <Contact userRef={listing.userRef} listing={listing} />
-          )}
+          {/* )} */}
         </div>
         <div className="w-full h-[200px] md:h-[400px] z-10 overflow-x-hidden mt-6 md:mt-0 md:ml-2">
           <MapContainer
